@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('app');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+
 Route::view('/ruang-kendali-ews', 'app')->name('admin.login');
 Route::post('/ruang-kendali-ews/login', [AdminAuthController::class, 'login'])
     ->middleware('throttle:5,1')
